@@ -119,17 +119,32 @@ class HomePage extends StatelessWidget {
           // 1. CAROUSEL SLIDER (BANNER)
           SliverToBoxAdapter(
             child: GetBuilder<PromotionController>(
+              id: 'event_list',
               builder: (controller) {
-                if (controller.events.isEmpty) {
+
+                if (controller.isLoading) {
                   return const SizedBox(
                     height: 180,
-                    child: Center(child: CircularProgressIndicator()),
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   );
                 }
 
-                return PromotionCarousel(promotions: controller.events);
+                if (controller.events.isEmpty) {
+                  return const SizedBox(
+                    height: 180,
+                    child: Center(
+                      child: Text("Không có khuyến mãi"),
+                    ),
+                  );
+                }
+
+                return PromotionCarousel(
+                  promotions: controller.events,
+                );
               },
-            ),
+            )
           ),
           // PromotionCarousel(promotions: pController.events),
 

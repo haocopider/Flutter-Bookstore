@@ -111,7 +111,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
       Get.offAll(() => const MainScreen());
       Get.find<MainController>().changeTab(3);
-      Get.to(() => const OrderHistoryPage(), transition: Transition.cupertino, duration: Duration(milliseconds: 400));
+      Get.to(() => OrderHistoryPage(), transition: Transition.cupertino, duration: Duration(milliseconds: 400));
       Get.snackbar(
           "Thành công", "Đơn hàng của bạn đã được ghi nhận!",
           backgroundColor: Colors.green, colorText: Colors.white, snackPosition: SnackPosition.BOTTOM

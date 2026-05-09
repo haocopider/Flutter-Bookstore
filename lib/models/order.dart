@@ -47,6 +47,7 @@ class Order {
 class OrderItem {
   final int bookId;
   final String bookTitle;
+  final String imageUrl;
   final int quantity;
   final double originalPrice;
   final double unitPrice;
@@ -54,6 +55,7 @@ class OrderItem {
   OrderItem({
     required this.bookId,
     required this.bookTitle,
+    required this.imageUrl,
     required this.quantity,
     required this.unitPrice,
     required this.originalPrice,
@@ -65,6 +67,7 @@ class OrderItem {
     return OrderItem(
       bookId: json['bookId'] as int? ?? 0,
       bookTitle: json['bookTitle']?.toString() ?? 'Sách không rõ tên',
+      imageUrl: json['imageUrl']?.toString() ?? '',
       quantity: json['quantity'] as int? ?? 1,
       unitPrice: (json['unitPrice'] as num?)?.toDouble() ?? 0.0,
       originalPrice: (json['originalPrice'] as num?)?.toDouble() ?? 0.0,

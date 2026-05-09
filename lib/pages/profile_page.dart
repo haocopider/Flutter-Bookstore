@@ -163,7 +163,7 @@ class Profile extends StatelessWidget {
                 child: Column(
                   children: [
                     _buildMenuTile(Icons.shopping_bag_outlined, Colors.blue, 'Lịch sử mua hàng', () {
-                      Get.to(() => const OrderHistoryPage(), transition: Transition.cupertino, duration: const Duration(milliseconds: 400));
+                      Get.to(() => OrderHistoryPage(), transition: Transition.cupertino, duration: const Duration(milliseconds: 400));
                     }),
                     const Divider(height: 1, indent: 50),
                     _buildMenuTile(Icons.lock_outline, Colors.orange, 'Đổi mật khẩu', () {

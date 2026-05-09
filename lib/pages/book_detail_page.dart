@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../controllers/book_detail_controller.dart';
 import '../controllers/cart_controller.dart';
 import '../models/order.dart';
+import 'cart_page.dart';
 import 'checkout_page.dart';
 
 class BookDetailPage extends StatelessWidget {
@@ -71,7 +72,32 @@ class BookDetailPage extends StatelessWidget {
                         ),
                       ),
                       actions: [
-                        IconButton(icon: const Icon(Icons.shopping_cart_outlined), onPressed: () => Get.toNamed('/cart')),
+                        GetBuilder<CartController>(
+                            id: 'cart_badge',
+                            builder: (cartController) {
+                              return Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.shopping_cart_outlined, color: Colors.blueAccent),
+                                    onPressed: () => Get.to(() => const CartPage()),
+                                  ),
+                                  if (cartController.cartMap.isNotEmpty)
+                                    Positioned(
+                                      right: 6, top: 6,
+                                      child: Container(
+                                        padding: const EdgeInsets.all(4),
+                                        decoration: const BoxDecoration(color: Colors.redAccent, shape: BoxShape.circle),
+                                        child: Text(
+                                          '${cartController.cartMap.length}',
+                                          style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                ],
+                              );
+                            }
+                        ),
                         IconButton(icon: const Icon(Icons.share_outlined), onPressed: () {}),
                       ],
                     ),
