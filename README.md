@@ -48,4 +48,10 @@ lib/
 └── main.dart       # Điểm khởi đầu của ứng dụng
 ```
 ## 📱 Giao diện người dùng
+<img width="1191" height="728" alt="Home" src="https://github.com/user-attachments/assets/bf3c940d-2836-4a89-bfa7-04965973caf0" />
+<img width="1193" height="736" alt="Sreach" src="https://github.com/user-attachments/assets/c49deaf8-6184-49c3-a0c9-16606e51433c" />
+<img width="1199" height="732" alt="Shopping" src="https://github.com/user-attachments/assets/b1c42160-16e0-4c86-a2a8-c4900253d5b4" />
+<img width="1182" height="736" alt="Order" src="https://github.com/user-attachments/assets/06397351-787b-4536-b975-7e8458845e6b" />
+<img width="1185" height="734" alt="profile" src="https://github.com/user-attachments/assets/883b7dc7-a1d4-4794-b552-0b2cdf393921" />
+<img width="1182" height="728" alt="login" src="https://github.com/user-attachments/assets/bea312ea-3073-4221-be79-442a9f6cac48" />
 
