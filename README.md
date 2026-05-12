@@ -46,3 +46,6 @@ lib/
 │   └── components/ # Các Widget con dùng chung (BookCard, OrderCard,...)
 ├── services/       # API Service, DI Setup, Base Service, Logging
 └── main.dart       # Điểm khởi đầu của ứng dụng
+```
+## 📱 Giao diện người dùng
+
