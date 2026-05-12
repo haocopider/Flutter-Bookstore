@@ -37,11 +37,12 @@ Dự án tuân thủ các nguyên lý phát triển phần mềm sạch (Clean A
 
 ## 📂 Cấu trúc thư mục
 
-*lib/
-*├── controllers/    # Quản lý Logic & State (Auth, Cart, Order, Book,...)
-*├── helpers/        # Các hàm tiện ích (Permissions, Storage helper,...)
-*├── models/         # Định nghĩa Data Models (Book, Author, Category, Review,...)
-*├── pages/          # Giao diện chính & Các màn hình chức năng
-*│   └── components/ # Các Widget con dùng chung (BookCard, OrderCard,...)
-*├── services/       # API Service, DI Setup, Base Service, Logging
-*└── main.dart       # Điểm khởi đầu của ứng dụng
+```text
+lib/
+├── controllers/    # Quản lý Logic & State (Auth, Cart, Order, Book,...)
+├── helpers/        # Các hàm tiện ích (Permissions, Storage helper,...)
+├── models/         # Định nghĩa Data Models (Book, Author, Category, Review,...)
+├── pages/          # Giao diện chính & Các màn hình chức năng
+│   └── components/ # Các Widget con dùng chung (BookCard, OrderCard,...)
+├── services/       # API Service, DI Setup, Base Service, Logging
+└── main.dart       # Điểm khởi đầu của ứng dụng
