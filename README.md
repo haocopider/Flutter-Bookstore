@@ -55,3 +55,5 @@ lib/
 <img width="1185" height="734" alt="profile" src="https://github.com/user-attachments/assets/883b7dc7-a1d4-4794-b552-0b2cdf393921" />
 <img width="1182" height="728" alt="login" src="https://github.com/user-attachments/assets/bea312ea-3073-4221-be79-442a9f6cac48" />
 
+---
+*Phát triển bởi haocopider*
