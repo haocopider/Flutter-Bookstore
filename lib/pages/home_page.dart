@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/cart_controller.dart';
 import '../controllers/home_controller.dart';
 import 'author_detail_page.dart';
+import 'chat_screen.dart';
 import 'components/carousel_slider.dart';
 import '../pages/components/book_card.dart';
 import 'book_detail_page.dart';
@@ -104,6 +105,10 @@ class HomePage extends StatelessWidget {
                 ],
               );
             }
+        ),
+        IconButton(
+          icon: const Icon(Icons.chat_outlined, color: Colors.white),
+          onPressed: () => Get.to(() => const CustomerChatScreen()),
         ),
       ],
     );

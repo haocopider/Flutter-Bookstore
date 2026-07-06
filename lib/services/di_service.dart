@@ -1,10 +1,12 @@
 import 'package:bookstore/models/category.dart';
 import 'package:bookstore/services/auth_service.dart';
+import 'package:bookstore/services/chat_service.dart';
 import 'package:bookstore/services/order_service.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import '../models/author.dart';
 import '../models/book.dart';
+import '../models/notification.dart';
 import '../models/promotion.dart';
 import 'api_service.dart';
 import 'base_service.dart';
@@ -34,6 +36,11 @@ void setupDI() {
       () => BaseService<Promotion>(getIt<ApiService>(), "promotions", Promotion.fromJson, (p) => p.toJson())
   );
 
+  getIt.registerLazySingleton<BaseService<Noti>>(
+      () => BaseService<Noti>(getIt<ApiService>(), "notifications", Noti.fromJson, (n) => n.toJson())
+  );
+
   getIt.registerLazySingleton<AuthService>(() => AuthService());
   getIt.registerLazySingleton<OrderService>(() => OrderService());
+  getIt.registerLazySingleton<ChatService>(()=> ChatService());
 }

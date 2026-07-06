@@ -8,7 +8,7 @@ class ApiService {
 
   ApiService(
       this._httpClient, {
-        this.baseUrl = "https://192.168.100.67:7259",
+        this.baseUrl = "https://10.20.1.1:7259",
       });
 
   Future<Map<String, String>> _getHeaders() async {

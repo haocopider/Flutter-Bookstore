@@ -11,6 +11,9 @@ import 'auth_controller.dart'; // Đảm bảo import class CheckoutItem
 class CartController extends GetxController {
   Map<int, CartItem> cartMap = {};
   Map<int, Book> cartProducts = {};
+
+
+
   bool isLoading = false;
 
   String get _userIdentifier {
@@ -68,6 +71,7 @@ class CartController extends GetxController {
     _saveToStorage();
     update(['cart_badge', 'cart_list', 'cart_checkout']);
   }
+
   void updateQuantity(int bookId, int change) {
     if (cartMap.containsKey(bookId)) {
       int newQuantity = cartMap[bookId]!.quantity + change;

@@ -5,16 +5,14 @@ import '../models/category.dart';
 
 class HomeController extends GetxController {
   bool isBooksLoading = true;
+  bool isCategoriesLoading = true;
+  bool isAuthorsLoading = true;
 
   Map<int, Book> promoBooks = {};
   Map<int, Book> trendingBooks = {};
   Map<int, Book> allBooks = {};
-
-  bool isAuthorsLoading = true;
   Map<int, Author> authors = {};
   Map<int, Author> filteredAuthors = {};
-
-  bool isCategoriesLoading = true;
   Map<int, Category> categories = {};
 
   @override

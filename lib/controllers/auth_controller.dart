@@ -1,8 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import '../helpers/notification_helper.dart';
 import '../helpers/storage_helper.dart';
 import '../main.dart';
 import '../models/auth.dart';
@@ -90,11 +89,13 @@ class AuthController extends GetxController {
         Get.find<MainController>().changeTab(3);
         Get.offAll(() => const MainScreen());
       }
+
     } catch (e) {
       _showError("Đăng nhập thất bại. Kiểm tra lại email/mật khẩu.");
     } finally {
       isLoading = false;
       update(['auth_button']);
+      await NotificationHelper.registerDeviceTokenWithBackend();
     }
   }
 
@@ -102,11 +103,12 @@ class AuthController extends GetxController {
     final token = await StorageHelper.getData('jwt_token');
 
     if (token != null && token.isNotEmpty) {
+      // 1. NGAY LẬP TỨC lấy dữ liệu từ Cache lên để hiển thị giao diện trước
       final cachedUserData = await StorageHelper.getData('user_info_cache');
       if (cachedUserData != null) {
         try {
           currentUser = UserInfo.fromJson(jsonDecode(cachedUserData));
-          update(['user_profile']);
+          update(['user_profile']); // Báo cho giao diện vẽ lại ngay
 
           if(Get.isRegistered<CartController>()) {
             Get.find<CartController>().reloadCartForUser();
@@ -116,20 +118,19 @@ class AuthController extends GetxController {
         }
       }
 
+      // 2. Chạy ngầm gọi API để làm mới (Refresh) dữ liệu
       try {
         final profileData = await _authService.getMyProfile();
 
         if (profileData != null) {
           currentUser = profileData;
-          update(['user_profile']);
+          update(['user_profile']); // Có data mới thì vẽ lại lần nữa
 
           String userJson = jsonEncode(profileData.toJson());
           await StorageHelper.saveData('user_info_cache', userJson);
-        } else {
-          await logout();
         }
       } catch (e) {
-        print("Lỗi lấy Profile từ API (Có thể do không có mạng): $e");
+        print("Lỗi lấy Profile từ API (Có thể do mạng lag): $e");
       }
     }
   }

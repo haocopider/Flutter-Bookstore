@@ -80,6 +80,18 @@ class AuthService {
     }
   }
 
+  Future<bool> updateFcmToken(String fcmToken) async {
+    try {
+      return await _apiService.putAsync(
+        endpoint: "$_endpoint/update-fcm-token",
+        item: {"Token": fcmToken},
+        toJson: (item) => item,
+      );
+    } catch (e) {
+      return false;
+    }
+  }
+
   Future<bool> changePassword(String oldPassword, String newPassword) async {
     try {
       return await _apiService.putAsync(
